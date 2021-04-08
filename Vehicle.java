@@ -31,7 +31,6 @@ abstract public class Vehicle {
 		return state;
 	}
 	
-	
 	public Vehicle(char type, String cRegis, int milages, double pricePerDay, String model, boolean state) {
 		this.type = type;
 		this.cRegis = cRegis;

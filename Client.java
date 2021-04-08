@@ -7,7 +7,7 @@ public class Client {
 	private long creditCard;
 	private int license;
 	private boolean frequent;
-	private request[] request;
+	private Request[] request;
 	private int numberRequest;
 
 	public String getDni() {
@@ -34,7 +34,7 @@ public class Client {
 		return numberRequest;
 	}
 	
-	public Client(String name, String dni, long creditCard, int license, boolean frequent, request[] request, int numberRequest) {
+	public Client(String name, String dni, long creditCard, int license, boolean frequent, Request[] request, int numberRequest) {
 		this.name = name;
 		this.dni = dni;
 		this.creditCard = creditCard;
@@ -51,18 +51,49 @@ public class Client {
 				cadena = cadena + request[i].toString();
 			}
 		}
-		return cadena;
+		return cadena; 	
 	}
 	
 	public void addRequest(Vehicle vehicle, Client client, int hireTime) {
-		request[numberRequest] = new request(hireTime, client.getDni(), vehicle);
+		request[numberRequest] = new Request(hireTime, client.getDni(), vehicle);
 		numberRequest++;
 	}
+	
+	public double calculateDiscount(int license, boolean frequent) {
+		double discount = 0;
+		if (license >= 10) {
+			discount = 0.05;
+			if (frequent == true) {
+				discount = discount + 0.2;
+			}
+		}
+		if (license >= 10 && frequent == true) {
+			discount = 0.3;
+		}
+		return discount;
+	}
 
-	//not sure if we will need to introduce the array of request and the number of request in the toString
+	public int getNumberAutomaticsRequest(Request[] Request, Vehicle hireVehicle) {
+		int cont = 0;
+		for (int i = 0; i < Request.length; i++) {
+			if (request[i].is_Automatic(hireVehicle)) { // esto sera subjetivo de cambios ya que aqui solo comprobamos un vehiculo
+				cont++;
+			}
+		}
+		return cont;
+	}
+	
+	public int countAutomatic(Vehicle vehicle) {
+		int cont = 0;
+		if(vehicle.isAutomatic()) {
+			cont++;
+		}
+		return cont;
+	}
 	public String toString() {
 		return "Client [name=" + name + ", dni=" + dni + ", creditCard=" + creditCard + ", license=" + license
-				+ ", frequent=" + frequent;
+				+ ", frequent=" + frequent + ", request=" + Arrays.toString(request) + ", numberRequest="
+				+ numberRequest + "]";
 	}
 	
 }
