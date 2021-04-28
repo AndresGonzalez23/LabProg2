@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Client {
+public class Client implements IConstants{ 
 	
 	private String name;
 	private String dni;
@@ -51,7 +51,7 @@ public class Client {
 				cadena = cadena + request[i].toString();
 			}
 		}
-		return cadena; 	
+		return cadena;
 	}
 	
 	public void addRequest(Vehicle vehicle, Client client, int hireTime) {
@@ -62,13 +62,13 @@ public class Client {
 	public double calculateDiscount(int license, boolean frequent) {
 		double discount = 0;
 		if (license >= 10) {
-			discount = 0.05;
+			discount = SENIORDISCOUNT;
 			if (frequent == true) {
-				discount = discount + 0.2;
+				discount = discount + FREQUENTDISCOUNT;
 			}
 		}
 		if (license >= 10 && frequent == true) {
-			discount = 0.3;
+			discount = SENIORFREQUENTDISCOUNT;
 		}
 		return discount;
 	}
