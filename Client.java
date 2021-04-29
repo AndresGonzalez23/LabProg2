@@ -34,14 +34,14 @@ public class Client implements IConstants{
 		return numberRequest;
 	}
 	
-	public Client(String name, String dni, long creditCard, int license, boolean frequent, Request[] request, int numberRequest) {
+	public Client(String name, String dni, long creditCard, int license, boolean frequent) {
 		this.name = name;
 		this.dni = dni;
 		this.creditCard = creditCard;
 		this.license = license;
 		this.frequent = frequent;
-		this.request = request;
-		this.numberRequest = numberRequest;
+		this.request = null;
+		this.numberRequest = 0;
 	}
 
 	public String showAllInformationRequest(Vehicle hireVehicle) {
@@ -95,5 +95,4 @@ public class Client implements IConstants{
 				+ ", frequent=" + frequent + ", request=" + Arrays.toString(request) + ", numberRequest="
 				+ numberRequest + "]";
 	}
-	
 }

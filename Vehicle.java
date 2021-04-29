@@ -31,13 +31,13 @@ abstract public class Vehicle {
 		return state;
 	}
 	
-	public Vehicle(char type, String cRegis, int milages, double pricePerDay, String model, boolean state) {
+	public Vehicle(char type, String cRegis, int milages, double pricePerDay, String model) {
 		this.type = type;
 		this.cRegis = cRegis;
 		this.milages = milages;
 		this.pricePerDay = pricePerDay;
 		this.model = model;
-		this.state = state;
+		this.state = false;
 	}
 	
 	abstract public boolean isAutomatic();

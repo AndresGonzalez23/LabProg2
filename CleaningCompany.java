@@ -3,6 +3,11 @@ public class CleaningCompany {
 	private String name;
 	private double price;
 
+	public CleaningCompany(String name, double price) {
+		this.name = name;
+		this.price = price;
+	}
+
 	public String getName() {
 		return name;
 	}

@@ -5,11 +5,11 @@ public class frequentClient extends Client {
 		return frequentNum;
 	}
 
-	public frequentClient(String name, String dni, long creditCard, int license, boolean frequent, Request[] request, int numberRequest) {
-		super(name, dni, creditCard, license, frequent, request, numberRequest);
+	public frequentClient(String name, String dni, long creditCard, int license, boolean frequent, int frequentNum) {
+		super(name, dni, creditCard, license, frequent);
 		this.frequentNum = frequentNum;
 	}
-	
+
 	public String toString() {
 		return "frequentClient" + super.toString() + "frequentNum=" + frequentNum;
 	}

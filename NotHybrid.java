@@ -1,8 +1,8 @@
 public class NotHybrid extends Vehicle {
 	private boolean automatic;
 
-	public NotHybrid(char type, String cRegis, int milages, double pricePerDay, String model, boolean state, boolean automatic) {
-		super(type, cRegis, milages, pricePerDay, model, state);
+	public NotHybrid(char type, String cRegis, int milages, double pricePerDay, String model, boolean automatic) {
+		super(type, cRegis, milages, pricePerDay, model);
 		this.automatic = automatic;
 	}
 

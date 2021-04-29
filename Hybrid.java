@@ -5,8 +5,8 @@ public class Hybrid extends Vehicle {
 		return autonomy;
 	}
 
-	public Hybrid(char type, String cRegis, int milages, double pricePerDay, String model, boolean state, int autonomy) {
-		super(type, cRegis, milages, pricePerDay, model, state);
+	public Hybrid(char type, String cRegis, int milages, double pricePerDay, String model, int autonomy) {
+		super(type, cRegis, milages, pricePerDay, model);
 		this.autonomy = autonomy;
 	}
 
