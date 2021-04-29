@@ -1,3 +1,4 @@
+  
 public class NotHybrid extends Vehicle {
 	private boolean automatic;
 

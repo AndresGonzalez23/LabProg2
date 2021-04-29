@@ -64,6 +64,14 @@ public class HireCompany implements IConstants {
 		return price; 
 	}
 	
+	public String showAllInfoVehicles() {
+		String cadena = " ";
+		for (int i = 0; i < listOfVehicles.length;i++) {
+			cadena += listOfVehicles[i].toString();
+		}
+		return cadena;
+	}
+	
 	public String showAllTheInfoVehiclesForHire() {
 		String cadena = " ";
 		for (int i = 0; i < listOfVehicles.length; i++) {
