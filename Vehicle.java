@@ -18,7 +18,7 @@ abstract public class Vehicle {
 	public int getMilages() {
 		return milages;
 	}
-	
+
 	public double getPricePerDay() {
 		return pricePerDay;
 	}
@@ -30,7 +30,7 @@ abstract public class Vehicle {
 	public boolean isState() {
 		return state;
 	}
-	
+
 	public Vehicle(char type, String cRegis, int milages, double pricePerDay, String model) {
 		this.type = type;
 		this.cRegis = cRegis;
@@ -39,11 +39,12 @@ abstract public class Vehicle {
 		this.model = model;
 		this.state = false;
 	}
-	
+
 	abstract public boolean isAutomatic();
-		
+
 	public String toString() {
-		return "Vehicle [type=" + type + ", cRegis=" + cRegis + ", milages=" + milages + ", price per day=" + pricePerDay + ", model=" + model + ", state=" + state + "]";
+		return "Vehicle [type=" + type + ", cRegis=" + cRegis + ", milages=" + milages + ", price per day="
+				+ pricePerDay + ", model=" + model + ", state=" + state + "]\n";
 	}
-	
+
 }

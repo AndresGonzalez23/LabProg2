@@ -1,14 +1,18 @@
 import java.util.Arrays;
 
-public class Client implements IConstants{ 
-	
+public class Client implements IConstants {
+
 	private String name;
 	private String dni;
 	private long creditCard;
 	private int license;
 	private boolean frequent;
-	private Request[] request;
-	private int numberRequest;
+	private Request[] request = new Request[10];
+	private int numberRequest = 0;
+
+	public Request[] getRequest() {
+		return request;
+	}
 
 	public String getDni() {
 		return dni;
@@ -33,33 +37,21 @@ public class Client implements IConstants{
 	public int getNumberRequest() {
 		return numberRequest;
 	}
-	
+
 	public Client(String name, String dni, long creditCard, int license, boolean frequent) {
 		this.name = name;
 		this.dni = dni;
 		this.creditCard = creditCard;
 		this.license = license;
 		this.frequent = frequent;
-		this.request = null;
-		this.numberRequest = 0;
 	}
 
-	public String showAllInformationRequest(Vehicle hireVehicle) {
-		String cadena = " ";
-		for (int i = 0; i < numberRequest; i++) {
-			if (request[i].is_Automatic(hireVehicle)) {
-				cadena = cadena + request[i].toString();
-			}
-		}
-		return cadena;
-	}
-	
-	public void addRequest(Vehicle vehicle, Client client, int hireTime) {
-		request[numberRequest] = new Request(hireTime, client.getDni(), vehicle);
+	public void addRequest(Vehicle vehicle, int hireTime) {
+		request[numberRequest] = new Request(hireTime, dni, vehicle);
 		numberRequest++;
 	}
-	
-	public double calculateDiscount(int license, boolean frequent) {
+
+	public double calculateDiscount() {
 		double discount = 0;
 		if (license >= 10) {
 			discount = SENIORDISCOUNT;
@@ -73,23 +65,32 @@ public class Client implements IConstants{
 		return discount;
 	}
 
-	public int getNumberAutomaticsRequest(Request[] Request, Vehicle hireVehicle) {
-		int cont = 0;
-		for (int i = 0; i < Request.length; i++) {
-			if (request[i].is_Automatic(hireVehicle)) { // esto sera subjetivo de cambios ya que aqui solo comprobamos un vehiculo
-				cont++;
+	public String showAutomaticRequest() {
+		String cadena = " ";
+		for (int i = 0; i < numberRequest; i++) {
+			if (this.request[i].is_Automatic() == true) {
+				cadena += request[i].toString();
 			}
 		}
-		return cont;
+		return cadena;
 	}
-	
+
+	public String toStringRequest() {
+		String cadena = " ";
+		for (int i = 0; i < numberRequest; i++) {
+			cadena += request[i].toString() + "\n";
+		}
+		return cadena;
+	}
+
 	public int countAutomatic(Vehicle vehicle) {
 		int cont = 0;
-		if(vehicle.isAutomatic()) {
+		if (vehicle.isAutomatic()) {
 			cont++;
 		}
 		return cont;
 	}
+
 	public String toString() {
 		return "Client [name=" + name + ", dni=" + dni + ", creditCard=" + creditCard + ", license=" + license
 				+ ", frequent=" + frequent + ", request=" + Arrays.toString(request) + ", numberRequest="

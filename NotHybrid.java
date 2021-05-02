@@ -1,4 +1,3 @@
-  
 public class NotHybrid extends Vehicle {
 	private boolean automatic;
 
@@ -12,8 +11,7 @@ public class NotHybrid extends Vehicle {
 	}
 
 	public String toString() {
-		return "NotHybrid" + super.toString() + "automatic: " + automatic;
+		return "NotHybrid" + super.toString() + "automatic: " + automatic + "\n";
 	}
-	
-	
+
 }

@@ -37,7 +37,7 @@ public class read {
 
 	public static Client[] readClients(String VehicleFile) throws FileNotFoundException {
 		Scanner fileScanner = new Scanner(new File(VehicleFile));
-		Client[] listOfClients = new Client[10];
+		Client[] listOfClients = new Client[20];
 		int i = 0;
 		while (fileScanner.hasNext()) {
 			String name = fileScanner.next();
@@ -50,7 +50,7 @@ public class read {
 				frequentClient frequentC = new frequentClient(name, dni, creditCard, license, frequent, frequentNum);
 				listOfClients[i] = frequentC;
 				i++;
-			}else {
+			} else {
 				Client client = new Client(name, dni, creditCard, license, frequent);
 				listOfClients[i] = client;
 				i++;

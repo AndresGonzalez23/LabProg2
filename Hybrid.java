@@ -16,7 +16,7 @@ public class Hybrid extends Vehicle {
 	}
 
 	public String toString() {
-		return "Hybrid" + super.toString() + "autonomy: " + autonomy;
+		return "Hybrid" + super.toString() + "autonomy: " + autonomy + "\n";
 	}
 
 }
